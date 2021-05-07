@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://www.googleoptimize.com/optimize.js?id=OPT-TN3CNSP"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47036920-21"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'UA-47036920-29');
+		</script>
+		<title>Redirecionamento</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	</head>
+	<body style="overflow-x: hidden;">
+        <h1 style="font-size: 2em;margin-top: 20px;text-align: center;" id="txt">
+		</h1>
+		<br>
+		<center style="">
+			<img class="img-fluid" src="loader.gif" width="300" height="300" alt="load"/>
+		</center>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+			setTimeout(
+			  function(){ 
+			    document.getElementById("txt").innerHTML="Conferindo licenças disponíveis";
+			    setTimeout(
+			      function(){ 
+			        document.getElementById("txt").innerHTML="Das ultimas 21 licenças..."; 
+			      }, 1000
+			    );
+			  }, 500
+			);
+			
+			setTimeout(
+			  function(){ 
+			    document.getElementById("txt").innerHTML="Restam 17 licenças!";
+			    setTimeout(
+			      function(){ 
+			        document.getElementById("txt").innerHTML="SUA LICENÇA FOI RESERVADA COM SUCESSO"; 
+                    redirect();
+			      }, 2000
+			    );
+			  }, 3000
+			);
+			
+            function redirect () {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                
+                // get parameters
+                const domainParam = urlParams.get('domain');
+                const affiliateParam = urlParams.get('affId');
+                const slugParam = urlParams.get('slug');
+                const hideBilletParam = urlParams.get('hideBillet');
+                const showSplitParam = urlParams.get('showSplit');
+                const offDiscountParam = urlParams.get('offDiscount');
+                const maxSplitParam = urlParams.get('maxSplit');
+                const installmentSplitParam = urlParams.get('installmentSplit');
+		const splitParam = urlParams.get('split');
+                
+                // set parameters
+                let parameterDivisor = null;
+                let buttonLink = 'https://pagar.minhalicenca.com/itx9o60d';
+                let qntParams = 0;
+                
+                if(buttonLink.includes('?'))
+                    parameterDivisor = '&';
+                else
+                    parameterDivisor = '?';
+                    
+                if(domainParam) {
+                    buttonLink = domainParam;
+                }
+                
+                if(affiliateParam) {
+                    buttonLink = `${buttonLink}/${affiliateParam}`;
+                }
+                    
+                if(slugParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}slug=${slugParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+                
+                if(hideBilletParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}hideBillet=${hideBilletParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+                
+                if(showSplitParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}showSplit=${showSplitParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+                
+                if(offDiscountParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}offDiscount=${offDiscountParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+                
+                if(maxSplitParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}maxSplit=${maxSplitParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+                
+                if(installmentSplitParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}installmentSplit=${installmentSplitParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+		    
+		if(splitParam) {
+                    buttonLink = `${buttonLink}${parameterDivisor}split=${splitParam}`;
+                    
+                    qntParams += 1;
+                    parameterDivisor = '&';
+                }
+		    
+		    
+
+                location.replace(buttonLink);
+            }
+		</script>
+    </body>
+</html>
